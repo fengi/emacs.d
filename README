@@ -1,0 +1,28 @@
+emacs configuration with technomancys emacs starter kit
+
+the user-specifics are kept in the directory "user" opposed to <user
+login> to make using between different hosts easier.
+
+Custom keymaps:
+;; jump through windows using <shift>+[up|down|left|right]
+(windmove-default-keybindings)
+(global-set-key [(ctrl c) (left)]  'windmove-left)
+(global-set-key [(ctrl c) (right)] 'windmove-right)
+(global-set-key [(ctrl c) (up)]    'windmove-up)
+(global-set-key [(ctrl c) (down)]  'windmove-down)
+
+;; Buffer cycling key bindings
+(global-set-key [(ctrl >)] 'ska-next-buffer)
+(global-set-key [(ctrl <)] 'ska-previous-buffer)
+
+(global-set-key "\C-cm" 'menu-bar-mode)
+(global-set-key "\C-cl" 'goto-line)
+(global-set-key "\C-ct" 'toggle-truncate-lines)
+(global-set-key "\M-#"  'shell-command-on-region)
+(global-set-key [(ctrl c) (b)] 'comment-box)
+(global-set-key [(ctrl c) (c)] 'comment-region)
+(global-set-key [(ctrl tab)] 'hippie-expand)
+(global-set-key [(ctrl c) (g)] 'my-git-status)
+(global-set-key [(ctrl c) (i)] 'ispell-change-dictionary)
+(global-set-key "\C-c," 'rails/goto)
+(global-set-key [(ctrl |)] 'linum-mode)
