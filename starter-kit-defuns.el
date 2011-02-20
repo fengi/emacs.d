@@ -34,15 +34,15 @@ Symbols matching the text at point are put first in the completion list."
                              (cond
                               ((and (listp symbol) (imenu--subalist-p symbol))
                                (addsymbols symbol))
-                              
+
                               ((listp symbol)
                                (setq name (car symbol))
                                (setq position (cdr symbol)))
-                              
+
                               ((stringp symbol)
                                (setq name symbol)
                                (setq position (get-text-property 1 'org-imenu-marker symbol))))
-                             
+
                              (unless (or (null position) (null name))
                                (add-to-list 'symbol-names name)
                                (add-to-list 'name-and-pos (cons name position))))))))
@@ -78,7 +78,7 @@ Symbols matching the text at point are put first in the completion list."
   (auto-fill-mode t))
 
 (defun turn-on-hl-line-mode ()
-  (if window-system (hl-line-mode t)))
+  (when (> (display-color-cells) 8) (hl-line-mode t)))
 
 (defun turn-on-save-place-mode ()
   (setq save-place t))
@@ -104,7 +104,7 @@ Symbols matching the text at point are put first in the completion list."
 (add-hook 'coding-hook 'pretty-lambdas)
 (add-hook 'coding-hook 'add-watchwords)
 (add-hook 'coding-hook 'idle-highlight)
-  
+
 (defun run-coding-hook ()
   "Enable things that are convenient across all coding buffers."
   (run-hooks 'coding-hook))
@@ -214,9 +214,39 @@ Symbols matching the text at point are put first in the completion list."
        (list ?\"))
   (paredit-mode 1))
 
+(defun esk-space-for-delimiter? (endp delimiter)
+  (not (member major-mode '(ruby-mode espresso-mode js2-mode))))
+
+(eval-after-load 'paredit
+  '(add-to-list 'paredit-space-for-delimiter-predicates
+                'esk-space-for-delimiter?))
+
 (defun message-point ()
   (interactive)
   (message "%s" (point)))
+
+(defun esk-disapproval ()
+  (interactive)
+  (insert "ಠ_ಠ"))
+
+(defun esk-agent-path ()
+  (if (eq system-type 'darwin)
+      "*launch*/Listeners"
+    "*ssh*/agent\.*"))
+
+(defun esk-find-agent ()
+  (let* ((path-clause (format "-path \"%s\"" (esk-agent-path)))
+         (find-command (format "$(find -L /tmp -uid $UID %s -type s 2> /dev/null)"
+                               path-clause)))
+    (first (split-string
+            (shell-command-to-string
+             (format "/bin/ls -t1 %s | head -1" find-command))))))
+
+(defun fix-agent ()
+  (interactive)
+  (let ((agent (esk-find-agent)))
+    (setenv "SSH_AUTH_SOCK" agent)
+    (message agent)))
 
 (defun toggle-fullscreen ()
   (interactive)
