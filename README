@@ -1,4 +1,4 @@
-emacs configuration with technomancys emacs starter kit
+emacs configuration with technomancys emacs starter kit (https://github.com/technomancy/emacs-starter-kit)
 
 the user-specifics are kept in the directory "user" opposed to <user
 login> to make using between different hosts easier.
