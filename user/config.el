@@ -78,6 +78,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; turn on icy-mode
-(setq load-path (cons (expand-file-name "~/.emacs.d/user/icicles") load-path))
-(require 'icicles)
-;; (icy-mode 1)
+;(setq load-path (cons (expand-file-name "~/.emacs.d/user/icicles") load-path))
+;(require 'icicles)
+;(icy-mode 1)
