@@ -52,7 +52,7 @@
 (global-set-key "\M-#"  'shell-command-on-region)
 (global-set-key [(ctrl c) (b)] 'comment-box)
 (global-set-key [(ctrl c) (c)] 'comment-region)
-(global-set-key [(ctrl tab)] 'hippie-expand)
+(global-set-key [(ctrl tab)] 'auto-complete)
 (global-set-key [(ctrl c) (g)] 'my-git-status)
 (global-set-key [(ctrl c) (i)] 'ispell-change-dictionary)
 (global-set-key "\C-c," 'rails/goto)
