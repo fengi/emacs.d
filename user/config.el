@@ -67,6 +67,7 @@
 (set-foreground-color "white")
 (set-background-color "black")
 (set-cursor-color "light grey")
+(column-number-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; load auto-complete
