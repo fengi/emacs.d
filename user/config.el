@@ -32,6 +32,21 @@
   (split-window-vertically 12)
   (magit-status default-directory))
 
+;; spell checking
+(defun my-change-dictionary (dict)
+  "Change dictionary and run flyspell on buffer."
+  (print (ispell-change-dictionary dict) (get-buffer "*mini*"))
+  (flyspell-buffer)
+  )
+(defun my-en-dictionary ()
+  "Sets dictionary to english."
+  (interactive)
+  (my-change-dictionary "en"))
+(defun my-de-dictionary ()
+  "Sets dictionary to german."
+  (interactive)
+  (my-change-dictionary "de"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; custom key bindings
 
@@ -41,9 +56,12 @@
 (global-set-key [(ctrl c) (right)] 'windmove-right)
 (global-set-key [(ctrl c) (up)]    'windmove-up)
 (global-set-key [(ctrl c) (down)]  'windmove-down)
+(global-set-key [(f12)] 'other-window)
 
 ;; Buffer cycling key bindings
+(global-set-key [(ctrl f12)] 'ska-next-buffer)
 (global-set-key [(ctrl >)] 'ska-next-buffer)
+(global-set-key [(ctrl S f12)] 'ska-previous-buffer)
 (global-set-key [(ctrl <)] 'ska-previous-buffer)
 
 (global-set-key "\C-cm" 'menu-bar-mode)
@@ -54,7 +72,9 @@
 (global-set-key [(ctrl c) (c)] 'comment-or-uncomment-region)
 (global-set-key [(ctrl tab)] 'auto-complete)
 (global-set-key [(ctrl c) (g)] 'my-git-status)
-(global-set-key [(ctrl c) (i)] 'ispell-change-dictionary)
+(global-set-key [(f5)] 'flyspell-buffer)
+(global-set-key [(f8)  (e)] 'my-en-dictionary )
+(global-set-key [(f8)  (d)] 'my-de-dictionary )
 (global-set-key "\C-c," 'rails/goto)
 (global-set-key [(ctrl |)] 'linum-mode)
 
