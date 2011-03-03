@@ -1,7 +1,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; custom libs
+
+;; rails-reloaded
 (setq load-path (cons (expand-file-name "~/.emacs.d/user/rails-reloaded") load-path))
 (require 'rails-autoload)
+
+;; auto-complete
+(add-to-list 'load-path "~/.emacs.d/user/auto-complete")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/user/ac-dict")
+(ac-config-default)
+
+;; modes
+(require 'haml-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; custom functions
@@ -88,13 +99,6 @@
 (set-background-color "black")
 (set-cursor-color "light grey")
 (column-number-mode)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; load auto-complete
-(add-to-list 'load-path "~/.emacs.d/user/auto-complete")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/user/ac-dict")
-(ac-config-default)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
