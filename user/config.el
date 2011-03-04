@@ -12,7 +12,6 @@
 (ac-config-default)
 
 ;; modes
-(require 'haml-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; custom functions
