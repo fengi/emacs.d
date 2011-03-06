@@ -57,8 +57,8 @@
   (interactive)
   (my-change-dictionary "de"))
 
-;; set default dictionary to english
-(my-en-dictionary)
+;; set global dictionary to english
+(ispell-change-dictionary "en" t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; custom key bindings
