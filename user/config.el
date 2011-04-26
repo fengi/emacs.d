@@ -42,6 +42,11 @@
   (split-window-vertically 12)
   (magit-status default-directory))
 
+(defun my-dired-dot ()
+  "Opens current dir i dired mode."
+  (interactive)
+  (dired "."))
+
 ;; spell checking
 (defun my-change-dictionary (dict)
   "Change dictionary and run flyspell on buffer."
@@ -77,19 +82,27 @@
 (global-set-key [(ctrl S f12)] 'ska-previous-buffer)
 (global-set-key [(ctrl <)]     'ska-previous-buffer)
 
+;; emacs
 (global-set-key [(ctrl c) (m)] 'menu-bar-mode)
 (global-set-key [(ctrl c) (l)] 'goto-line)
 (global-set-key [(ctrl c) (t)] 'toggle-truncate-lines)
 (global-set-key "\M-#"         'shell-command-on-region)
+(global-set-key [(ctrl |)]     'linum-mode)
+(global-set-key [(f11)]        'my-dired-dot)
+(global-set-key [(meta f12)]   'ibuffer)
+
+;; editing
 (global-set-key [(ctrl c) (b)] 'comment-box)
 (global-set-key [(ctrl c) (c)] 'comment-or-uncomment-region)
 (global-set-key [(ctrl tab)]   'auto-complete)
 (global-set-key [(ctrl c) (g)] 'my-git-status)
-(global-set-key [(f5)]         'flyspell-buffer)
+
+;; spell checking
+(global-set-key [(f7)]         'flyspell-buffer)
 (global-set-key [(f8)  (e)]    'my-en-dictionary )
 (global-set-key [(f8)  (d)]    'my-de-dictionary )
+
 (global-set-key [(ctrl c) (,)] 'rails/goto)
-(global-set-key [(ctrl |)]     'linum-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; custom hooks
