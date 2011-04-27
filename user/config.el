@@ -85,7 +85,7 @@
 ;; emacs
 (global-set-key [(ctrl c) (m)] 'menu-bar-mode)
 (global-set-key [(ctrl c) (l)] 'goto-line)
-(global-set-key [(ctrl c) (t)] 'toggle-truncate-lines)
+(global-set-key [(ctrl x) (t)] 'toggle-truncate-lines)
 (global-set-key "\M-#"         'shell-command-on-region)
 (global-set-key [(ctrl |)]     'linum-mode)
 (global-set-key [(f11)]        'my-dired-dot)
