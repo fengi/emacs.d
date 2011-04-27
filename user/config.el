@@ -57,6 +57,14 @@
   (interactive)
   (my-change-dictionary "de"))
 
+;; documentation
+(defun bdoc ()
+  "Starts bdoc in current folder"
+  (interactive)
+  (start-process-shell-command "bdoc" (get-buffer "*Messages*") "bdoc")
+  (set-process-query-on-exit-flag (get-process "bdoc") nil)
+  )
+
 ;; set global dictionary to english
 (ispell-change-dictionary "en" t)
 
